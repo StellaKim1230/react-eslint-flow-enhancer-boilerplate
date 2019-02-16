@@ -1,0 +1,15 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["react", "jsx-a11y", "import", "prettier"],
+  "rules": {
+    "react/jsx-filename-extension": 0,
+    "react/prop-types": 0,
+    "react/destructuring-assignment": 0,
+    "react/no-access-state-in-setstate": 0,
+    "react/button-has-type": 0,
+    "react/prefer-stateless-function": 0,
+    "quotes": 1,
+    "semi": [2, "never"]
+  }
+}
