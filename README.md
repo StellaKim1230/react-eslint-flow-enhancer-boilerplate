@@ -42,3 +42,5 @@ $ node_modules/.bin/flow init 실행 -> .flowconfig 생성
 ```bash
 $ npx flow (terminal에서 flow 체크할 시)
 ```
+
+[flow cheat sheet](https://www.saltycrane.com/flow-type-cheat-sheet/latest/) 

@@ -1,56 +1,63 @@
 // @flow
-import React from 'react'
 
-type state = {
+import React, { Component, createRef } from 'react'
+
+type State = {
   name: string,
   phone: string,
-  value: string,
 }
 
-type props = {
-  onCreate: any,
+type Props = {
+  onCreate: (data: State) => void,
 }
 
-class PhoneForm extends React.Component<props, state> {
-  input = React.createRef<any>();
+class PhoneForm extends Component<Props, State> {
+  input: { current: null | HTMLInputElement } = createRef<HTMLInputElement>()
 
   state = {
     name: '',
     phone: '',
-    value: '',
   }
 
-  handleChange = (e: any) => {
+  handleChange = ({ target }: SyntheticInputEvent<EventTarget>) => {
     this.setState({
-      [e.target.name]: e.target.value,
+      [target.name]: target.value,
     })
   }
 
-  handleSubmit = (e: any) => {
+  handleSubmit = (e: SyntheticInputEvent<EventTarget>) => {
     e.preventDefault()
     this.props.onCreate(this.state)
     this.setState({
       name: '',
       phone: '',
     })
-    // this.input.current.focus< null | any >()
+    this.onFocus()
+  }
+
+  onFocus = () => {
+    const { current } = this.input
+    if (!current) return
+    current.focus()
   }
 
   render() {
+    const { value, name } = this.state
+
     return (
       <form onSubmit={this.handleSubmit}>
         <input
+          ref={this.input}
           name="name"
           placeholder="이름"
           onChange={this.handleChange}
-          value={this.state.name}
-          ref={this.input}
+          value={name}
         />
         <input
           name="phone"
           placeholder="전화번호"
           onChange={this.handleChange}
-          value={this.state.value}
+          value={value}
         />
         <button type="submit">등록</button>
       </form>
