@@ -4,7 +4,7 @@ class PhoneInfo extends Component {
   state = {
     editing: false,
     name: '',
-    phone: ''
+    phone: '',
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -29,23 +29,23 @@ class PhoneInfo extends Component {
     if (this.state.editing) {
       onUpdate(info.id, {
         name: this.state.name,
-        phone: this.state.phone
+        phone: this.state.phone,
       })
     } else {
       this.setState({
         name: info.name,
-        phone: info.phone
+        phone: info.phone,
       })
     }
 
     this.setState({
-      editing: !this.state.editing
+      editing: !this.state.editing,
     })
   }
 
   handleChange = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     })
   }
 
@@ -56,7 +56,7 @@ class PhoneInfo extends Component {
     const style = {
       border: '1px solid black',
       padding: '8px',
-      margin: '8px'
+      margin: '8px',
     }
 
     console.log(name)

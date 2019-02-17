@@ -3,7 +3,7 @@ import PhoneInfo from './PhoneInfo'
 
 class PhoneInfoList extends Component {
   static defaultProps = {
-    data: []
+    data: [],
   }
 
   render() {

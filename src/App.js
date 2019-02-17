@@ -1,35 +1,34 @@
-import React, { Component } from 'react';
-import PhoneForm from './components/PhoneForm';
-import PhoneInfoList from './components/PhoneInfoList';
+import React, { Component } from 'react'
+import PhoneForm from './components/PhoneForm'
+import PhoneInfoList from './components/PhoneInfoList'
 
 class App extends Component {
-
   id = 3;
 
   state = {
     information: [
       {
-        name: '홍길동', 
+        name: '홍길동',
         phone: '000-0000-0001',
         id: 0,
       },
       {
-        name: '김지은', 
+        name: '김지은',
         phone: '000-0000-0002',
         id: 1,
       },
       {
-        name: '김스텔라', 
+        name: '김스텔라',
         phone: '000-0000-0003',
         id: 2,
-      }
+      },
     ],
     keyword: '',
-  }
+  };
 
   handleChange = (e) => {
     this.setState({
-      keyword : e.target.value
+      keyword: e.target.value,
     })
   }
 
@@ -38,8 +37,8 @@ class App extends Component {
     this.setState({
       information: information.concat({
         ...data,
-        id: this.id++
-      })
+        id: this.id++,
+      }),
       // information: information.concat(Object.assign({}, data, {
       //   id: this.id++
       // }))
@@ -49,7 +48,7 @@ class App extends Component {
   handleRemove = (id) => {
     const { information } = this.state
     this.setState({
-      information: information.filter(info => info.id !== id)
+      information: information.filter(info => info.id !== id),
     })
   }
 
@@ -65,8 +64,8 @@ class App extends Component {
             }
           }
           return info
-        }
-      )
+        },
+      ),
     })
   }
 
@@ -81,14 +80,14 @@ class App extends Component {
         />
         <PhoneInfoList
           data={this.state.information.filter(
-            info => info.name.indexOf(this.state.keyword) > -1
+            info => info.name.indexOf(this.state.keyword) > -1,
           )}
           onRemove={this.handleRemove}
           onUpdate={this.handleUpdate}
         />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
