@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+
 import PhoneForm from './components/PhoneForm'
 import PhoneInfoList from './components/PhoneInfoList'
+import Warning from './components/Warning'
+import Hello from './components/Hello'
 
 class App extends Component {
   id = 3;
@@ -24,6 +27,7 @@ class App extends Component {
       },
     ],
     keyword: '',
+    isShowModal: true,
   };
 
   handleChange = (e) => {
@@ -69,9 +73,16 @@ class App extends Component {
     })
   }
 
+  onCloseModal = () => this.setState({
+    isShowModal: false,
+  })
+
   render() {
+    const { isShowModal } = this.state
+
     return (
       <div>
+        {isShowModal && <Warning onCloseModal={this.onCloseModal} />}
         <PhoneForm onCreate={this.handleCreate} />
         <input
           value={this.state.keyword}
