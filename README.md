@@ -24,7 +24,8 @@ $ node_modules/.bin/flow init 실행 -> .flowconfig 생성
 
 1. ESlint
 2. vscode-flow-ide
-3. TypeScript and JavaScript Language Features (optiosn: disabled(workspace))
+3. TypeScript and JavaScript Language Features
+(optiosn: disabled(workspace))
 
 ### 3. lint convention (.eslintrc 참고)
 
